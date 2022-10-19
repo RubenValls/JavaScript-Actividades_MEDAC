@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De 0 a 20</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>De 0 a 20 - Par/Impar</h1>
+    </div>
+        <hr>
+    <div id="test"></div>
+    <script>
+        const div = document.getElementById("test");
+        for (let i = 0; i<=20; i++)
+            {
+                const parrafo= document.createElement('p');
+                if (i%2 == 0){
+                    parrafo.innerHTML = (`<h4>Es número ${i} es un número par.</h4>`);
+                }else{
+                    parrafo.innerHTML = (`<h4>Es número ${i} es un número impar.</h4>`);
+                }
+                div.appendChild(parrafo);
+            }
+    </script>
+</body>
+</html>
