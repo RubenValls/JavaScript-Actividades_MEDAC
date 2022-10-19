@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De 0 a 20</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body onload="de0a20()">
+    <script>
+        function de0a20(){
+            document.write('<h1 style="text-align: center;">De0a20 - Par/Impar</h1>');
+            document.write('<hr>');
+            for (let i = 0; i<=20; i++)
+            {
+                if (i%2 == 0){
+                    document.write(`<h4>Es número ${i} es un número par.</h4>`);
+                }else{
+                    document.write(`<h4>Es número ${i} es un número impar.</h4>`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
