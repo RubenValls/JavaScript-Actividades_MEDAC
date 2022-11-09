@@ -1,12 +1,17 @@
 function primeNumbers(){
     const container = document.querySelector("#node")
-    let primeNumbers = []
-    for (i=0;i<=100;i++){
-        if(checkPrime(i)){
-            let para = document.createElement("p")
-            para.innerHTML = i
-            container.appendChild(para)
+    let count = 0;
+    if (count === 1){
+        removeAllChildNodes(container)
+    }else{
+        for (i=0;i<=100;i++){
+            if(checkPrime(i)){
+                let para = document.createElement("p")
+                para.innerHTML = i
+                container.appendChild(para)
+            }
         }
+        count = 1;
     }
 }
 
@@ -22,4 +27,10 @@ function checkPrime(number){
         }
     }
     return check
+}
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
 }
