@@ -3,6 +3,7 @@ function primeNumbers(){
     const container = document.querySelector("#node")
     if (count === 1){
         removeAllChildNodes(container)
+        count = 1
     }else{
         for (i=0;i<=100;i++){
             if(checkPrime(i)){
@@ -11,7 +12,7 @@ function primeNumbers(){
                 container.appendChild(para)
             }
         }
-        count = 1;
+        count = 1
     }
 }
 
