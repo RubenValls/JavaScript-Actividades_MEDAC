@@ -2,7 +2,7 @@ let count = 0;
 function primeNumbers(){
     const container = document.querySelector("#node")
     if (count === 1){
-        removeAllChildNodes(container)
+        container.innerHTML = ''
         count = 0
     }else{
         for (i=0;i<=100;i++){
