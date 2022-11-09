@@ -2,10 +2,7 @@ let count = 0;
 function primeNumbers(){
     const container = document.querySelector("#node")
     if (count === 1){
-        container.forEach(element => {
-            element.removeChild()
-        });
-        count = 0
+        alert("You generated all the nombers. Reload the page.")
     }else{
         for (i=0;i<=100;i++){
             if(checkPrime(i)){
