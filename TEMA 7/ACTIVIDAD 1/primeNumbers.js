@@ -1,6 +1,6 @@
+let count = 0;
 function primeNumbers(){
     const container = document.querySelector("#node")
-    let count = 0;
     if (count === 1){
         removeAllChildNodes(container)
     }else{
