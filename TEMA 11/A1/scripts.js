@@ -1,4 +1,4 @@
-import {printItems, addToList} from "./functions.js";
+import {printItems, addToList} from "functions.js";
 
 printItems();
 const btn = document.querySelector('#buttonAdd');
