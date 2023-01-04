@@ -22,7 +22,8 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script>
         $( document ).ready(function(){
-            $("#submit").click(function() {
+            $("#submit").click(function(e) {
+                e.preventDefault();
                 let url = checkUrl();
                 connectTo(url);
             });
@@ -45,16 +46,15 @@
                     async: false,
                     success : function(text)
                     {
-                        response = text;
+                        response = JSON.stringify(text);
                     }
             });
             if(response){
                 container.innerHTML = `<h5>${response}</h5>`;
             }else{
-                container.innerHTML = `<h5>Cannot connecto to ${testUrl} or get data, try another URL.</h5>`;
+                container.innerHTML = `<h5>Can not connect to to ${testUrl} or get data, try another URL.</h5>`;
             }
         }
-
     </script>
 </body>
 </html>
