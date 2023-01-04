@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Data - AJAX & JQuery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid bg-dark text-white p-1 text-center">
+        <h1>Get Info from URL</h1>
+    </div>
+    <div class="container m-2 p-2">
+        <form>
+            <label for="url" class="form-label m-2">URL:</label>
+            <input type="url" class="form-control m-2" id="url" placeholder="https://example.com" required>
+            <button class="btn btn-primary m-2" id="submit">Submit</button>
+        </form>
+    </div>
+    <div class="container" id="info"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function(){
+            $("#submit").click(function() {
+                let url = checkUrl();
+                connectTo(url);
+            });
+        })
+
+        function checkUrl(){
+            let url = document.querySelector("#url").value;
+            if(!url){
+                window.alert('You should include an URL');
+            }else{
+                return url;
+            }
+        }
+
+        function connectTo(testUrl){
+            let response = '';
+            let container = document.querySelector('#info');
+            $.ajax({ type: "GET",   
+                    url: testUrl,   
+                    async: false,
+                    success : function(text)
+                    {
+                        response = text;
+                    }
+            });
+            if(response){
+                container.innerHTML = `<h5>${response}</h5>`;
+            }else{
+                container.innerHTML = `<h5>Cannot connecto to ${testUrl} or get data, try another URL.</h5>`;
+            }
+        }
+
+    </script>
+</body>
+</html>
