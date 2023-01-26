@@ -9,16 +9,18 @@ const NewTask = () => {
         const name = target.taskName.value;
         const description = target.taskDescription.value;
         const priority = target.taskPriority.value;
+        let task = {
+            name,
+            description,
+            priority 
+        }
         target.taskName.value = '';
         target.taskDescription.value = '';
         target.taskPriority.value = '';
+        
         store.dispatch({
             type: 'CHARGE_TASK',
-            payload: {
-                name,
-                description,
-                priority
-            }
+            payload: task
         })
     }
     
@@ -27,21 +29,21 @@ const NewTask = () => {
             <form onSubmit={addTask}>
                 <div class="mb-3">
                     <label for="taskName" class="form-label"><h5>Task Name:</h5></label>
-                    <input type="text" class="form-control" id="taskName" name='taskName' placeholder="..."/>
+                    <input type="text" class="form-control" id="taskName" name='taskName' placeholder="..." required/>
                 </div>
                 <div class="mb-3">
                     <label for="taskDescription" class="form-label"><h5>Task Description</h5></label>
-                    <textarea class="form-control" id="taskDescription" name='taskDescription' rows="3"></textarea>
+                    <textarea class="form-control" id="taskDescription" name='taskDescription' rows="3" required></textarea>
                 </div>
                 <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example" name='taskPriority'>
-                        <option selected>Priority</option>
+                    <label for="prioritySelector" class="form-label"><h5>Priority</h5></label>
+                    <select class="form-select" aria-label="Default select example" name='taskPriority' id='prioritySelector' required>
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="C">C</option>
                     </select>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" id='btnSubmit'>
                     <button class="btn btn-dark" type="submit">Add Task</button>
                 </div>
             </form>
